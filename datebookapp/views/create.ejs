@@ -1,0 +1,24 @@
+<%- include("header") -%>
+<%- include("nav") -%>
+
+
+    <h1>Create a new Post</h1>
+
+    <form action="/">
+        <label for="title">Title</label>
+        <input type="text" name="pt-title" id="pt-title">
+
+        <!-- THIS SHOULD BE OPTIONAL -->
+        <input type="file" name="cover-image" id="cover-image">
+        <!--  -->
+        
+        <label for="post">What's on your mind?</label>
+        <input type="textarea" name="pt-post" id="pt-post">
+
+        <button type="submit">Post</button>
+
+    </form>
+
+
+
+<%- include("footer") -%>

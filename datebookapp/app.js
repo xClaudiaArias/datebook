@@ -4,6 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser')
 const logger = require('morgan');
+const db = require('./database')
+const md5 = require('md5');
+
 
 // ROUTERS 🟢
 const indexRouter = require('./routes/index');
@@ -26,11 +29,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json())
 
 
 // ROUTERS 🟢
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/user/id', userRouter);
 app.use('/create', createRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
@@ -52,32 +58,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// -------
-// const sqlite3 = require('sqlite3').verbose()
-// const db = new sqlite3.Database('./db/datebook.db')
-
-// db.serialize(() => {
-//   db.run('CREATE TABLE lorem (info TEXT)')
-//   const stmt = db.prepare('INSERT INTO lorem VALUES (?)')
-
-//   for (let i = 0; i < 10; i++) {
-//     stmt.run(`Ipsum ${i}`)
-//   }
-
-//   stmt.finalize()
-
-//   db.each('SELECT rowid AS id, info FROM lorem', (err, row) => {
-//     console.log(`${row.id}: ${row.info}`)
-//   })
-// })
-
-// db.close()
-
-// -------
-
-
-
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);

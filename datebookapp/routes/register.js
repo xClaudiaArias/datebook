@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res, next) => {
-
     if (!req.body.firstName || !req.body.lastName ||!req.body.email || !req.body.username || !req.body.password ) {
         res.status(400).json({ "error": "Field can't be empty."});
         return;

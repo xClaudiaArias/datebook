@@ -4,7 +4,7 @@ const md5 = require('md5');
 
 db.serialize(() =>  {
     db.run(
-    `CREATE TABLE user (
+    `CREATE TABLE IF NOT EXISTS user (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         firstName TEXT,
         lastName TEXT,
@@ -20,12 +20,12 @@ db.serialize(() =>  {
     } else {
       // insert sample values
         let insert = 'INSERT INTO user (firstName, lastName, email, username, password, location) VALUES (?,?,?,?,?,?)'
-        db.run(insert, ["claudia", "arias", "admin@example.com", "admin", md5("admin12345"), "new york"])
-        db.run(insert, ["iselsa", "rodriguez", "iselsa@example.com", "user1", md5("iselsa12345"), "los angeles"])
+        db.run(insert, ["claudia", "arias", "admin@example.com", "admin", "admin12345", "new york"])
+        db.run(insert, ["iselsa", "rodriguez", "iselsa@example.com", "user1", "iselsa12345", "los angeles"])
         }
     })
     db.run(
-    `CREATE TABLE post (
+    `CREATE TABLE IF NOT EXISTS post (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         post TEXT,
@@ -42,8 +42,10 @@ db.serialize(() =>  {
                 db.run(insert, ["My second post", "If there's two big trees invariably sooner or later there's gonna be a little tree. Let's make a nice big leafy tree. Paint anything you want on the canvas. Create your own world. Tree trunks grow however makes them happy.", "09/04/2023", "09/04/2023"])
             }
     })
+
+
 })
 
-// db.close()
+
 
 module.exports = db

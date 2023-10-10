@@ -1,9 +1,15 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const session = require('express-session');
+
+
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: ' | Homepage'});
+router.get('/', (req, res) => {
+    let user = req.session.user
+
+    res.render("index")
 });
 
-module.exports = router;
+
+module.exports = router

@@ -4,6 +4,12 @@
 
 
     <main>
+        <% if (locals.username === undefined) { %>
+            <h1><%= locals.username %></h1>
+        <% } else { %>
+            <h1>Welcome POTATO</h1>
+        <% } %>
+
         <h1>[ My First Blog Title ]</h1>
         <h2>[ date ]</h2>
 
@@ -16,8 +22,9 @@
 
     <article>
         <div id="user-info">
-            <img src="" alt=""/>
-            <h2><h1>Welcome, <%= user %>!</h1></h2>
+            <img src="" alt=""/>     
+                <p> Welcome to Datebook! </p>
+
             <h4>User's Location</h4>
     
             <button type="button" class="btn btn-primary">Edit</button>

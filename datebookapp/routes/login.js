@@ -1,55 +1,53 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session')
 const db = require('../database')
 
+const router = express.Router();
+
 /* GET users listing. */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
     res.sendFile('login.html', {'root': '././auth'})
 });
 
-router.post('/', async (req, res, next) => {
-    try {
-    const { username, password } = req.body;
+router.post('/', (req, res) => {
+    const { username, password } = req.body
 
-    db.serialize(() =>  {
-        if (!(username && password )) {
-            res.status(400).json({"message": "All fields are required"})
+    let user = [];
+
+    db.serialize(() => {
+
+        if (!(username && password)) {
+            res.status(400).json({ message: "Username or password is required"})
         }
+
+        let sql = "SELECT * FROM user WHERE username = ?"
     
-        let user = [];
-    
-        var sql = "SELECT * FROM user WHERE username = ?";
-    // query through database to find user 
         db.all(sql, username, (err, rows) => {
-            if (err){
-                res.status(400).json({"error": err.message})
-                return;
-            }
-            console.log(rows, " :rows")
-            rows.forEach((row) => {
-                user.push(row);                
-            })
-
-            let passVer = password
-
-            if (passVer === user[0].password) {
-                console.log("Success")
-                // res.redirect('/');
-                res.render('index', { user: user[0].firstName});
-            } else {
-                return res.status(400).send("No Match");          
+            if (err) {
+                res.status(400).status({"error": err.message})
             }
     
-            // return res.status(200).send(user);  
+            console.log(rows, " ::rows")
+            rows.forEach(row => {
+                user.push(row)
+            });
+
+            if (password !== user[0].password) {
+                res.status(401).json({message: "Invalid Credentials."})
+            } else {
+                req.session.user = {
+                    id: user[0].id,
+                    firstName: user[0].firstName,
+                    lastName: user[0].lastName,
+                    username: user[0].username
+                }
+                res.redirect("/dashboard")
+            }
+
+
         })
-
-        // use verification later for this:
     })
-
-    } catch (err) {
-        console.log(err)
-    }
 });
 
 

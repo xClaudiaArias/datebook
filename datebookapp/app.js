@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const session = require("express-session");
 const restricted = require("./middleware/restricted")
+const authBlock = require("./middleware/authBlock")
 
 const app = express();
 const port = 3000
@@ -28,8 +29,7 @@ const sessionConfig = {
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const createRouter = require('./routes/create');
-const loginRouter = require('./routes/login');
-const registerRouter = require('./routes/register');
+const authRouter = require('./routes/auth');
 const postsRouter = require('./routes/posts');
 const dashboardRouter = require('./routes/dashboard')
 
@@ -53,8 +53,10 @@ app.use('/dashboard', restricted, dashboardRouter)
 app.use('/user', restricted, userRouter);
 app.use('/user/id', userRouter);
 app.use('/create', createRouter);
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
+app.use('/auth/', authRouter);
+app.use('/auth/login', authBlock, authRouter);
+app.use('/auth/register', authBlock, authRouter);
+app.use('/auth/logout', authRouter);
 app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler

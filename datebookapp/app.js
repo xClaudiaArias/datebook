@@ -30,8 +30,6 @@ const userRouter = require('./routes/user');
 const createRouter = require('./routes/create');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
-const settingsRouter = require('./routes/settings');
-const aboutRouter = require('./routes/about');
 const postsRouter = require('./routes/posts');
 const dashboardRouter = require('./routes/dashboard')
 
@@ -57,8 +55,6 @@ app.use('/user/id', userRouter);
 app.use('/create', createRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/settings', settingsRouter);
-app.use('/about', aboutRouter);
 app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler

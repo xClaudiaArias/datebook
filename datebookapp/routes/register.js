@@ -5,7 +5,7 @@ const db = require('../database')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.sendFile('register.html', {'root': '././auth'})
+    res.render('./auth/register')
 });
 
 router.post('/', (req, res, next) => {

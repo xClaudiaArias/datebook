@@ -4,7 +4,7 @@ const db = require('../database');
 const md5 = require('md5');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res) => {
   let sql = "SELECT * FROM user"
   let params = []
 
@@ -23,18 +23,18 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/:id', function(req, res, next) {
-  let sql = "SELECT * FROM user WHERE id = ?"
+router.get('/:id', (req, res) => {
+  let sql = "SELECT * FROM user WHERE user_id = ?"
   let params = [req.params.id]
 
-  db.get(sql, params, (err, row) => {
+  db.get(sql, params, (err, rows) => {
     if (err) {
       res.status(400).json({"error": err.message})
       return;
     } 
     res.json({
       "message": "success",
-      "data": row
+      "data": rows
     })
   })
 });

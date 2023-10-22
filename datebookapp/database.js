@@ -3,9 +3,10 @@ const db = new sqlite3.Database('./db/datebook.db')
 const md5 = require('md5');
 
 db.serialize(() =>  {
+    db.get("PRAGMA foreign_keys = ON");
     db.run(
     `CREATE TABLE IF NOT EXISTS user (
-        user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         firstName TEXT,
         lastName TEXT,
         email TEXT UNIQUE,
@@ -31,7 +32,7 @@ db.serialize(() =>  {
         post TEXT,
         date_created TEXT,
         date_updated TEXT,
-        user_id integer NOT NULL, FOREIGN KEY (user_id) REFERENCES user (id)
+        user_id INTEGER NOT NULL, FOREIGN KEY (user_id) REFERENCES user (user_id)
         )`,
         (err) => {
             if (err) {

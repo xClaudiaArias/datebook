@@ -47,7 +47,7 @@ app.use(bodyParser.json())
 app.use(session(sessionConfig))
 
 
-// ROUTERS 🟢
+// ROUTES 🟢
 app.use('/', indexRouter);
 app.use('/dashboard', restricted, dashboardRouter)
 app.use('/user', restricted, userRouter);
@@ -58,6 +58,9 @@ app.use('/auth/login', authBlock, authRouter);
 app.use('/auth/register', authBlock, authRouter);
 app.use('/auth/logout', authRouter);
 app.use('/posts', postsRouter);
+app.use('/posts/update/id', postsRouter);
+app.use('/posts/delete/id', postsRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

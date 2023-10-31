@@ -53,6 +53,7 @@ app.use('/dashboard',  dashboardRouter)
 app.use('/user', userRouter);
 app.use('/user/id', userRouter);
 app.use('/user/update/user_id', userRouter);
+app.use('/user/delete/user_id', userRouter);
 app.use('/create', createRouter);
 app.use('/auth/', authRouter);
 app.use('/auth/login', authRouter);

@@ -73,43 +73,6 @@ router.post('/', (req, res) => {
 
 })
 
-// router.patch('/update/:user_id', (req, res) => {
-//   const { user_id } = req.params
-//   // const newId = parseInt(user_id)
-//   const {firstName, lastName, email, username, password, location} = req.body
-
-//     if (!firstName || !lastName ||!email || !username || !password || !location) {
-//       res.status(400).json({ "error": "Field can't be empty."});
-//       return;
-//     }
-    
-//     let data = {
-//       user_id: user_id,
-//       firstName: firstName,
-//       lastName: lastName,
-//       email: email, 
-//       username: username,
-//       password: password,
-//       location:location
-//     }
-
-//     let sql = 'UPDATE user SET firstName = ?, lastName = ?, email = ?, username = ?, password = ?, location = ? WHERE user_id = ?'
-//     let params = [data.user_id, data.firstName, data.lastName, data.email, data.username, data.password, data.location]
-
-//     db.run(sql, params, function(err) {
-//       if (err) {
-//         return console.error(err.message);
-//       }
-//       console.log(`Row(s) updated: ${this.changes}`);
-//       res.json({
-//         "Rows Updated": this.changes
-//       })
-    
-//     });
-
-
-// })
-
 
 router.patch('/update/:user_id', (req, res) => {
   const {user_id} = req.params
@@ -142,15 +105,15 @@ router.patch('/update/:user_id', (req, res) => {
   })
 })
 
-router.delete('/delete/:id', (req, res) => {
-    const { id } = req.params
+router.delete('/delete/:user_id', (req, res) => {
+    const { user_id } = req.params
     const user = req.session.user
 
     let sql = `DELETE FROM user WHERE user_id = ?`
 
-    console.log(req.params, id, " ::req.params, params,")
+    console.log(req.params, user_id, " ::req.params, params,")
 
-    db.run(sql, id, (err, rows) => {
+    db.run(sql, user_id, (err, rows) => {
       if (err) {
         res.status(400).json({"message": err.message});
         return; 

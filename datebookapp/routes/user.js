@@ -117,7 +117,19 @@ router.patch('/update/:user_id', (req, res) => {
 
   let sql = 'UPDATE user SET firstName = ?, lastName = ?, email = ?, username = ?, password = ?, location = ? WHERE user_id = ?';
 
-  db.run(sql,  [firstName, lastName, email, username, password, location, user_id], (err) => {
+  let data = {
+    firstName: firstName,
+    lastName: lastName,
+    email: email,
+    username: username,
+    password: password,
+    location: location,
+    user_id: user_id
+  }
+
+  let params = [data.firstName, data.lastName, data.email, data.username, data.password, data.location, data.user_id]
+
+  db.run(sql, params, (err) => {
     if (err) {
       res.status(400).json({"err": err.message})
       return;
@@ -125,7 +137,7 @@ router.patch('/update/:user_id', (req, res) => {
 
     console.log("Changes: " + this.changes)
     res.json({
-      "changes": this.changes
+      "message": "User successfully updated."
     })
   })
 })

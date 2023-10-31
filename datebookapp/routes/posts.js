@@ -129,7 +129,7 @@ router.patch('/update/:id', (req, res) => {
 
 // delete 
 router.delete('/delete/:id', (req, res) => {
-    const { id } = req.params
+    const id = req.params
     const user = req.session.user
 
     let sql = `DELETE FROM post WHERE post_id = ? AND user_id = ?`
@@ -142,10 +142,13 @@ router.delete('/delete/:id', (req, res) => {
     let params = [data.post_id, data.user_id]
 
     db.run(sql, params, (err) => {
-        if (err) console.log(err)
+        if (err) {
+            res.status(400).json({"message": err.message});
+            return; 
+        }
 
         res.json({
-            "message": "Post succefully deleted"
+            "message": "Post successfully deleted"
         })
     })
 

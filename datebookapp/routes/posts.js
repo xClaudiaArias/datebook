@@ -75,12 +75,12 @@ router.post('/', (req, res) => {
 
     let data = {
         title: req.body.title,
-        post: req.body.post_data,
+        post_data: req.body.post_data,
         user_id: user.id
     }
 
-    let sql = 'INSERT INTO post (title, post, user_id) VALUES (?,?,?)'
-    let params = [data.title, data.post, data.user_id]
+    let sql = 'INSERT INTO post (title, post_data, user_id) VALUES (?,?,?)'
+    let params = [data.title, data.post_data, data.user_id]
 
     db.run(sql, params, (err, result) => {
         if (err) {
@@ -98,49 +98,39 @@ router.post('/', (req, res) => {
 })
 
 // edit 
-router.patch('/update/:id', (req, res) => {
-    const { id } = req.params
+router.patch("/update/:post_id", (req, res) => {
     const user = req.session.user
+    const { post_id } = req.params
     const { title, post_data } = req.body
 
-    let sql = 'UPDATE post SET title = ?, post_data = ? WHERE post_id = ? AND user_id = ?'
-    
-    let data = {
-        post_id: id,
-        title: title,
-        post_data: post_data,
-        user_id: user.id,
-    }
-
-    let params =  [data.post_id, data.title, data.post_data, data.user.id]
-
-    db.run(sql, params, (err) => {
+    db.run(`UPDATE post SET title = ?, post_data = ? WHERE post_id = ? AND user_id = ?`, [title, post_data, post_id, user.id ], (err) => {
         if (err) {
-            res.status(400).json({"message": err.message});
-            return; 
+            res.status(400).json({"err": err.message})
         }
 
         res.json({
             "message": "Post successfully updated",
-            "data": data
+            "changes": this.changes
         })
     })
 })
 
 // delete 
-router.delete('/delete/:id', (req, res) => {
-    const id = req.params
+router.delete('/delete/:post_id', (req, res) => {
+    const { post_id }= req.params
     const user = req.session.user
 
     let sql = `DELETE FROM post WHERE post_id = ? AND user_id = ?`
 
     let data = {
-        post_id: id,
+        post_id: post_id,
         user_id: user.id
     }
 
     let params = [data.post_id, data.user_id]
 
+
+    console.log(params, " params")
     db.run(sql, params, (err) => {
         if (err) {
             res.status(400).json({"message": err.message});
@@ -157,42 +147,3 @@ router.delete('/delete/:id', (req, res) => {
 module.exports = router;
 
 
-
-
-
-
-// let user = req.session.user
-// let post_id = req.params.post_id
-// let { title, post_data } = req.body 
-
-// if (!(req.body.post_data && req.body.title)) {
-//     res.status(400).json({ "error": "Field can't be empty."});
-//     return;
-// }
-
-// let data = {
-//     post_id: parseInt(post_id),
-//     title: title,
-//     post_data: post_data,
-//     user_id: user.id
-// }
-
-// let sql = `UPDATE post SET title = ?, post_data = ? WHERE post_id = ? AND user_id = ?`
-
-// let cc = [data.post_id, data.title, data.post_data, data.user_id]
-
-// console.log(req.params, " ::req.params")
-// console.log(cc, " cc")
-
-// db.run(sql, cc, (err) => {
-//     if (err) {
-//         res.status(400).json({"message": err.message});
-//         return;                      
-//     } 
-
-//     console.log(sql, " sql")
-//     res.json({
-//         "message": "post successfully updated",
-//         "data": data
-//     })
-// })

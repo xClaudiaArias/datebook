@@ -119,7 +119,7 @@ router.delete('/delete/:user_id', (req, res) => {
         return; 
     }
     
-    console.log(rows, " ::rows")
+    // console.log(rows, " ::rows")
         res.json({
             "message": "User successfully deleted"
         })

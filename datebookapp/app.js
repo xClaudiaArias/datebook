@@ -61,6 +61,8 @@ app.use('/auth/register', authRouter);
 app.use('/auth/logout', authRouter);
 app.use('/posts', postsRouter);
 app.use('/posts/id', postsRouter);
+app.use('/posts/update/post_id', postsRouter);
+app.use('/posts/delete/post_id', postsRouter);
 
 
 // catch 404 and forward to error handler

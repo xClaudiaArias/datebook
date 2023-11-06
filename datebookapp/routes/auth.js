@@ -67,7 +67,7 @@ router.post('/login', (req, res) => {
     
         db.all(sql, username, (err, rows) => {
             if (err) {
-                res.status(400).status({"error": err.message})
+                res.status(400).json({"error": err.message})
             }
     
             console.log(rows, " ::rows")

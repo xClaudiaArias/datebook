@@ -5,8 +5,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const session = require("express-session");
-// const restricted = require("./middleware/restricted")
-// const authBlock = require("./middleware/authBlock")
+const restricted = require("./middleware/restricted")
+const authBlock = require("./middleware/authBlock")
 
 const app = express();
 const port = 3000
@@ -31,7 +31,7 @@ const userRouter = require('./routes/user');
 const createRouter = require('./routes/create');
 const authRouter = require('./routes/auth');
 const postsRouter = require('./routes/posts');
-const dashboardRouter = require('./routes/dashboard')
+const logoutRouter = require('./routes/logout')
 
 
 
@@ -49,13 +49,12 @@ app.use(session(sessionConfig))
 
 // ROUTES 🟢
 app.use('/', indexRouter);
-app.use('/dashboard',  dashboardRouter)
 app.use('/user', userRouter);
 app.use('/user/id', userRouter);
 app.use('/user/update/user_id', userRouter);
 app.use('/user/delete/user_id', userRouter);
 app.use('/create', createRouter);
-app.use('/auth/', authRouter);
+app.use('/auth/', authBlock, authRouter);
 app.use('/auth/login', authRouter);
 app.use('/auth/register', authRouter);
 app.use('/auth/logout', authRouter);

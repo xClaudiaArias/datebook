@@ -14,22 +14,22 @@ router.post('/', (req, res) => {
     let user = req.session.user
 
 
-    if (!(req.body.post && req.body.title)) {
+    if (!(req.body.post_data && req.body.title)) {
         res.status(400).json({ "error": "Field can't be empty."});
         return;
 }
 
     let data = {
         title: req.body.title,
-        post: req.body.post,
+        post_data: req.body.post_data,
         user_id: user.id
     }
 
     console.log(data.user_id)
-    console.log(req.body.title, req.body.post)
+    console.log(req.body.title, req.body.post_data)
 
-    let sql = 'INSERT INTO post (title, post, user_id) VALUES (?,?,?)'
-    let params = [data.title, data.post, data.user_id]
+    let sql = 'INSERT INTO post (title, post_data, user_id) VALUES (?,?,?)'
+    let params = [data.title, data.post_data, data.user_id]
 
     db.run(sql, params, (err, result) => {
         if (err) {

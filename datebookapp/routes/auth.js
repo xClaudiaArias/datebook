@@ -12,7 +12,7 @@ router.get('/register', (req, res) => {
 });
 
 // POST register. 
-router.post('/', (req, res) => {
+router.post('/register', (req, res) => {
     if (!req.body.firstName || !req.body.lastName ||!req.body.email || !req.body.username || !req.body.password ) {
         res.status(400).json({ "error": "Field can't be empty."});
         return;
@@ -35,11 +35,12 @@ router.post('/', (req, res) => {
             return;                      
         } 
         
-        res.json({
-            "message" : "Success",
-            "data": data,
-            "id": this.lastID
-        })
+        // res.json({
+        //     "message" : "Success",
+        //     "data": data,
+        //     "id": this.lastID
+        // })
+        res.redirect("/auth/login")
     })
 
 });
@@ -84,32 +85,13 @@ router.post('/login', (req, res) => {
                     lastName: user[0].lastName,
                     username: user[0].username
                 }
-                res.redirect("/dashboard")
+                res.redirect("/")
             }
 
 
         })
     })
 });
-
-// LOGOUT 
-
-router.get('/logout', (req, res) => {
-    if (req.session) {
-        req.session.destroy(error => {
-            if (error) {
-                console.log(error)
-                res.status(500).json({message: "Something went wrong"})
-            } else {
-                res.status(200).json({message: "Goodbye"})
-            }
-        })
-    } else {
-        res.status(200).json({message: "Not logged In"})
-    }
-});
-
-
 
 
 module.exports = router;

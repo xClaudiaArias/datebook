@@ -48,6 +48,22 @@ nav #login-button button {
   height: 40px;
 }
 
+/* --------------- MAIN ------------------ */
+
+.container,
+.login-container {
+  border: 1px solid green;
+  height: 580px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  border: 1px solid orange;
+  width: 100%;
+}
+
 /* ------------- FOOTER ---------------- */
 
 footer {
@@ -99,4 +115,58 @@ footer #subscribe form input[type="text"]{
   width: 200px;
   border: none;
   padding: 0 4px;
+}
+
+/* ------------ LOGIN -------------- */
+
+.login-container main {
+  display: flex;
+  justify-content: space-between;
+  height: inherit;
+}
+
+.login-container main #form-left {
+  background-color: rgb(179, 179, 179);
+  width: 700px;
+  height: inherit;
+  flex: 1;
+}
+
+.login-container main #form-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+  align-items: center;
+  /* border: 1px solid red; */
+  flex: 1;
+}
+
+.login-container main #form-right form {
+  /* border: 1px solid blue; */
+  width: 400px;
+  height: 260px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.login-container main #form-right form .login-btn {
+  /* border: 1px solid green; */
+  width: 400px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container main #form-right form .form-inputs input[type="text"],
+.login-container main #form-right form .form-inputs input[type="password"] {
+  width: 400px;
+  height: 30px;
+}
+
+.login-container main #form-right form .login-btn button {
+  width: 100px;
+  height: 40px;
 }

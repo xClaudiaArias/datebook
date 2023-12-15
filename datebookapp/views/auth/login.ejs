@@ -1,19 +1,31 @@
 <%- include("../partials/header") -%>
 <%- include("../partials/nav") -%>
 
-<p>Welcome Back!</p>
-<h1>LOGIN</h1>
+<div class="login-container">
+    <main>
+        <div id="form-left">
+        </div>
 
-<form method="post">
-    <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username">
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password">
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+        <div id="form-right">
+            <p>Welcome Back!</p>
+            <h1>LOGIN</h1>
+            <form method="post">
+                <div class="form-inputs">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="form-inputs">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="login-btn">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+</div>
+
 
 <%- include("../partials/footer") -%>

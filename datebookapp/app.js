@@ -32,8 +32,7 @@ const createRouter = require('./routes/create');
 const authRouter = require('./routes/auth');
 const postsRouter = require('./routes/posts');
 const logoutRouter = require('./routes/logout')
-
-
+const accountRouter = require('./routes/account');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -62,6 +61,7 @@ app.use('/posts', postsRouter);
 app.use('/posts/id', postsRouter);
 app.use('/posts/update/post_id', postsRouter);
 app.use('/posts/delete/post_id', postsRouter);
+app.use('/account', accountRouter);
 
 
 // catch 404 and forward to error handler

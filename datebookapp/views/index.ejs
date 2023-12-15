@@ -1,51 +1,24 @@
 <%- include("./partials/header") -%>
 <%- include("./partials/nav") -%>
 
-    <main>
-        <% if (locals.user) { %>
-            <h1>Welcome to your dashboard, <%= locals.firstName %> </h1>
-
-            <% posts.forEach((post) => { %>
-                <% console.log(post, " :post") %>
-                <ul>
-                    <li><h1><%= post.title %> </h1></li>
-                    <li><p><%= post.post_data %></p></li>
-                </ul>
-            <% }) %>
-        <% } else { %>
-            <h1>Welcome POTATO</h1>
-        <% } %>
-    </main>
-
-    <article>
-        <div id="user-info">
-            <img src="" alt=""/>     
-                <p> Welcome to Datebook! </p>
-
-            <h4>User's Location</h4>
+    <div class="container">
+        <main>
+            <% if (locals.user) { %>
+                <h1>Welcome to your dashboard, <%= locals.firstName %> </h1>
     
-            <button type="button" class="btn btn-primary">Edit</button>
-        </div>
-
-        <hr>
-
-        <div id="user-socials">
-            <div>
-                <img src="" alt=""/>
-                <p>Twitter</p>
-            </div>
-            <div>
-                <img src="" alt=""/>
-                <p>Facebook</p>
-            </div>
-            <div>
-                <img src="" alt=""/>
-                <p>LinkedIn</p>
-            </div>
-        </div>
-
-
-    </article>
+                <% posts.forEach((post) => { %>
+                    <% console.log(post, " :post") %>
+                    <ul>
+                        <li><h1><%= post.title %> </h1></li>
+                        <li><p><%= post.post_data %></p></li>
+                    </ul>
+                <% }) %>
+            <% } else { %>
+                <h1>Welcome POTATO</h1>
+            <% } %>
+        </main>
+    </div>
+    
 
 
     <%- include("./partials/footer") -%>

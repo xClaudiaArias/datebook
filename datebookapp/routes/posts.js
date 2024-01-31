@@ -7,19 +7,29 @@ const router = express.Router();
 
 /* GET posts listing. */
 router.get('/', (req, res) => {
-    let sql = "SELECT * FROM post"
-    let params = []
 
-    db.all(sql, params, (err, rows) => {
-        if (err) {
-            res.status(400).json({"message": err.message});
-            return;
-        }
-        res.json({
-            "message": "Success",
-            "data": rows
-        })
-    })
+    // TODO: send post page instead 
+
+
+    // let sql = "SELECT * FROM post"
+    // let params = []
+
+    // db.all(sql, params, (err, rows) => {
+    //     if (err) {
+    //         res.status(400).json({"message": err.message});
+    //         return;
+    //     }
+    //     res.json({
+    //         "message": "Success",
+    //         "data": rows
+    //     })
+    // })
+
+
+    // ---------------------------------------
+
+    res.render("index")
+
 });
 
 // get posts by id 

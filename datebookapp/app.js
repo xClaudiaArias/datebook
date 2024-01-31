@@ -25,14 +25,6 @@ const sessionConfig = {
 
 
 
-// ROUTERS 🟢
-const indexRouter = require('./routes/index');
-const userRouter = require('./routes/user');
-const createRouter = require('./routes/create');
-const authRouter = require('./routes/auth');
-const postsRouter = require('./routes/posts');
-const logoutRouter = require('./routes/logout')
-const accountRouter = require('./routes/account');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,6 +36,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 app.use(session(sessionConfig))
+
+
+// ROUTERS 🟢
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
+const createRouter = require('./routes/create');
+const authRouter = require('./routes/auth');
+const logoutRouter = require('./routes/logout')
+const accountRouter = require('./routes/account');
+const postsRouter = require('./routes/posts');
+
 
 
 // ROUTES 🟢
@@ -58,9 +61,10 @@ app.use('/auth/login', authRouter);
 app.use('/auth/register', authRouter);
 app.use('/auth/logout', authRouter);
 app.use('/posts', postsRouter);
-app.use('/posts/id', postsRouter);
-app.use('/posts/update/post_id', postsRouter);
-app.use('/posts/delete/post_id', postsRouter);
+
+// app.use('/posts/id', postsRouter);
+// app.use('/posts/update/post_id', postsRouter);
+// app.use('/posts/delete/post_id', postsRouter);
 app.use('/account', accountRouter);
 
 

@@ -1,10 +1,45 @@
 <%- include("./partials/header") -%>
 <%- include("./partials/nav") -%>
 
-    <div class="container">
+    <div id="hm-container">
         <main>
             <% if (locals.user) { %>
-                <h1>Welcome to your dashboard, <%= locals.firstName %> </h1>
+
+                <div id="user-welcome">
+                    <div id="user-img">
+                        <img src="" >
+                    </div>
+                    <div id="user-msg">
+                        <h1>Welcome, <%= locals.firstName %> </h1>
+                    </div>
+                    <div id="user-btns">
+                        <button>Click</button>
+                    </div>
+                </div>
+
+
+                <ul id="hm-posts">
+                    <li>
+                        <div id="hm-post">
+                            <div id="hm-header">
+                                <div id="hm-title"></div>
+                                <div id="hm-date"></div>
+                                <div id="hm-header-btns">
+                                    <button>Edit</button>
+                                    <button>Share</button>
+                                    <button>Delete</button>
+                                </div>
+                            </div>
+                            <div id="hm-body"></div>
+                            <div id="hm-footer">
+                                <button>Read More ...</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                
+
+
     
                 <% posts.forEach((post) => { %>
                     <% console.log(post, " :post") %>
@@ -14,6 +49,7 @@
                     </ul>
                 <% }) %>
             <% } else { %>
+                <!-- TODO: mssg for users not logged in 👇 -->
                 <h1>Welcome POTATO</h1>
             <% } %>
         </main>

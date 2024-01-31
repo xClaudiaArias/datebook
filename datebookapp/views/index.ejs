@@ -18,35 +18,36 @@
                 </div>
 
 
+                
+
+
+    
+                <% posts.forEach((post) => { %>
+
                 <ul id="hm-posts">
                     <li>
                         <div id="hm-post">
                             <div id="hm-header">
-                                <div id="hm-title"></div>
-                                <div id="hm-date"></div>
+                                <div id="hm-title">
+                                    <p><%= post.title %> </p>
+                                </div>
+                                <div id="hm-date">
+                                </div>
                                 <div id="hm-header-btns">
                                     <button>Edit</button>
                                     <button>Share</button>
                                     <button>Delete</button>
                                 </div>
                             </div>
-                            <div id="hm-body"></div>
+                            <div id="hm-body">
+                                <p><%= post.post_data %></p>
+                            </div>
                             <div id="hm-footer">
                                 <button>Read More ...</button>
                             </div>
                         </div>
                     </li>
                 </ul>
-                
-
-
-    
-                <% posts.forEach((post) => { %>
-                    <% console.log(post, " :post") %>
-                    <ul>
-                        <li><h1><%= post.title %> </h1></li>
-                        <li><p><%= post.post_data %></p></li>
-                    </ul>
                 <% }) %>
             <% } else { %>
                 <!-- TODO: mssg for users not logged in 👇 -->

@@ -2,11 +2,14 @@ const express = require('express');
 const db = require('../database');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+
 const router = express.Router();
+
 
 
 /* GET posts listing. */
 router.get('/', (req, res) => {
+    let user = req.session.user
 
     // TODO: send post page instead 
 
@@ -28,7 +31,27 @@ router.get('/', (req, res) => {
 
     // ---------------------------------------
 
-    res.render("index")
+    if (user !== undefined ) {
+        let sql = "SELECT * FROM post WHERE user_id = ?"
+
+    
+
+        db.all(sql, user.id, (err, rows) => {
+            if (err) {
+                res.status(400).json({"error": err.message})
+                return;
+            } 
+
+            // posts.push(rows)
+            let posts = rows;
+    
+            res.render("posts", {user: user, posts: posts})
+        })
+
+
+    } else {
+        res.render("posts")
+    }
 
 });
 

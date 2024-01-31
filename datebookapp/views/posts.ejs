@@ -3,8 +3,8 @@
 
 <div id="posts-container">
     <main>
-        <% if (locals.user) { %>
 
+        <% if (locals.user) { %>
             <div id="posts-user-pf">
                 <img src="" alt="user profile image">
                 <p>User's name</p>
@@ -12,30 +12,39 @@
             </div>
 
 
-            <ul id="posts-posts">
-                <li>
-                    <div id="posts-post">
-                        <div id="posts-header">
-                            <div id="posts-title"></div>
-                            <div id="posts-date"></div>
-                            <div id="posts-header-btns">
-                                <button>Edit</button>
-                                <button>Share</button>
-                                <button>Delete</button>
+            <% posts.forEach((post) => { %>
+            <% console.log(post, " :post") %>
+
+                <ul id="posts-posts">
+                    <li>
+                        <div id="posts-post">
+                            <div id="posts-header">
+                                <div id="posts-title">
+                                    <p><%= post.title %> </p>
+                                </div>
+                                <div id="posts-date">
+                                </div>
+                                <div id="posts-header-btns">
+                                    <button>Edit</button>
+                                    <button>Share</button>
+                                    <button>Delete</button>
+                                </div>
+                            </div>
+                            <div id="posts-body">
+                                <p><%= post.post_data %></p>
+                            </div>
+                            <div id="posts-footer">
+                                <button>Read More ...</button>
                             </div>
                         </div>
-                        <div id="posts-body"></div>
-                        <div id="posts-footer">
-                            <button>Read More ...</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        <%> } else { <%>
+                    </li>
+                </ul>
+            <% }) %>
+        <% } else { %>
             <h1>
                 Sorry, No posts found
             </h1>
-        <%>} <%>
+        <% } %>
     </main>
 </div>
 

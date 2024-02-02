@@ -7,28 +7,35 @@
 
                 <div id="user-welcome">
                     <div id="user-img">
-                        <img src="" >
+                        <!-- TODO: CHANGE IMAGE  -->
+                        <img src="https://cdn.pixabay.com/photo/2021/11/12/03/04/woman-6787784_1280.png" alt="pfp">
                     </div>
                     <div id="user-msg">
-                        <h1>Welcome, <%= locals.firstName %> </h1>
+                        <p>Welcome back,</p>
+                        <h1><%= locals.firstName %> </h1>
                     </div>
                     <div id="user-btns">
                         <button>Create</button>
                     </div>
                 </div>
-    
-                <% posts.forEach((post) => { %>
 
-                <ul id="hm-posts">
+
+            <ul id="hm-posts">
+                <% posts.forEach((post) => { %>
                     <li>
                         <div id="hm-post">
                             <div id="hm-header">
-                                <div id="hm-title">
-                                    <p><%= post.title %> </p>
+                                <div id="hm-title-date">
+                                    <div id="hm-title">
+                                        <p><%= post.title %> </p>
+                                    </div>
+
+
+                                    <div id="hm-date">
+                                        <p><em>November 26, 2024</em></p>
+                                    </div>
                                 </div>
-                                <div id="hm-date">
-                                    <p>November 26, 2024</p>
-                                </div>
+ 
                                 <div id="hm-header-btns">
                                     <button>Edit</button>
                                     <button>Share</button>
@@ -43,8 +50,8 @@
                             </div>
                         </div>
                     </li>
-                </ul>
                 <% }) %>
+            </ul>
             <% } else { %>
                 <!-- TODO: mssg for users not logged in 👇 -->
                 <h1>Welcome POTATO</h1>

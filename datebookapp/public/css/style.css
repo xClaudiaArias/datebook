@@ -25,8 +25,28 @@ nav #logo {
     text-transform: uppercase;
 }
 
-nav #navigation-links {
-    width: 300px;
+nav #navigation {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav .drop-down {
+    width: 40px;
+    display: none;
+    background: #1e1e1e;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+}
+
+nav #navigation #navigation-links {
+    width: 400px;
     height: inherit;
     display: flex;
     justify-content: space-between;
@@ -34,27 +54,27 @@ nav #navigation-links {
     list-style-type: none;
 }
 
-nav #navigation-links li,
-nav #navigation-links li a  {
+nav #navigation #navigation-links li,
+nav #navigation #navigation-links li a  {
     font-size: 16px;
     text-decoration: none;
     color: #939393;
     text-transform: uppercase;
 }
 
-nav #navigation-links li a:hover  {
+nav #navigation #navigation-links li a:hover  {
     color: #1e1e1e;
 }
 
-nav #navigation-links .nav-divider {
+nav #navigation #navigation-links .nav-divider {
     color: #e4e4e4;
 }
 
-nav #login-button {
+nav #navigation #login-button {
     margin-left: auto;
 }
 
-nav #login-button button {
+nav #navigation #login-button button {
     background: #1e1e1e;
     color: white;
     font-size: 16px;
@@ -66,9 +86,78 @@ nav #login-button button {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
 }
 
-nav #login-button button a{
+nav #navigation #login-button button a{
     text-decoration: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
+
+
+
+@media(max-width: 1204px) {
+    nav #logo {
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+    nav #navigation-links {
+        width: 250px;
+    }
+    nav #navigation-links li,
+    nav #navigation-links li a  {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 840px) {
+    nav #navigation {
+        height: 300px;
+        width: 200px;
+        display: none;
+        flex-direction: column;
+        align-items: space-around;
+        justify-content: center;
+        position: absolute;
+        background: white;
+        z-index: 1;
+        top: 70px;
+        right: 50px;
+        border-radius: 16px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+        margin-left: auto;
+    }
+    nav #navigation.show-nav {
+        display: flex;
+    }
+    nav #navigation #navigation-links {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: space-around;
+        align-items: space-around;
+        padding: 10px 0;
+    }
+    nav #navigation #navigation-links .nav-divider {
+        display: none;
+    }
+    nav #navigation #login-button {
+        margin-left: 0;
+    }
+    nav .drop-down {
+        margin-left: auto;
+        display: block;
+    }
+    
+}
+
+@media(max-width: 300px) {
+    nav {
+        height: 50px;
+        padding: 0 10px ;
+    }
+    nav #logo {
+        font-size: 16px;
+    }
+}
+

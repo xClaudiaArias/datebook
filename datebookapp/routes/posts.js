@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
             // posts.push(rows)
             let posts = rows;
     
-            res.render("posts", {user: user, posts: posts})
+            res.render("posts", {user: user, posts: posts, date: dateCreated()})
         })
 
 

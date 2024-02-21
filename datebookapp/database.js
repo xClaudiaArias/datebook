@@ -12,6 +12,7 @@ db.serialize(() =>  {
         email TEXT UNIQUE,
         username TEXT UNIQUE,
         password TEXT,
+        user_image TEXT,
         location NULL
         )`,
     (err) => {

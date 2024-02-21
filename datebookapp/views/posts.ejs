@@ -6,16 +6,14 @@
 
         <% if (locals.user) { %>
             <div id="posts-user-pf">
-                <img src="" alt="user profile image">
-                <p>User's name</p>
-                <p>Today's date</p>
+                <img src="https://cdn.pixabay.com/photo/2021/11/12/03/04/woman-6787784_1280.png" alt="pfp">
+                <p id="pt-username"><%= locals.user.firstName %></p>
+                <p id="pt-date"><%= date %></p>
             </div>
 
-
+            <ul id="posts-posts">
             <% posts.forEach((post) => { %>
             <% console.log(post, " :post") %>
-
-                <ul id="posts-posts">
                     <li>
                         <div id="posts-post">
                             <div id="posts-header">
@@ -26,26 +24,26 @@
                                     <p>November 26, 2024</p>
                                 </div>
                                 <div id="posts-header-btns">
-                                    <button>Edit</button>
                                     <button>Share</button>
+                                    <button>Edit</button>
                                     <button>Delete</button>
                                 </div>
                             </div>
                             <div id="posts-body">
-                                <p><%= post.post_data %></p>
+                                <p><%- post.post_data %></p>
                             </div>
                             <div id="posts-footer">
-                                <button>Read More ...</button>
+                                <button>Read More</button>
                             </div>
                         </div>
                     </li>
-                </ul>
             <% }) %>
         <% } else { %>
             <h1>
                 Sorry, No posts found
             </h1>
         <% } %>
+    </ul>
     </main>
 </div>
 

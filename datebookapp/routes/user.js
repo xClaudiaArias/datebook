@@ -52,11 +52,12 @@ router.post('/', (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     username: req.body.username,
-    password: req.body.password
+    password: req.body.password, 
+    user_image: "https://picsum.photos/200/300/?blur=2"
   }
 
-  let sql = 'INSERT INTO user (firstName, lastName, email, username, password) VALUES (?,?,?,?,?)'
-  let params = [data.firstName, data.lastName, data.email, data.username, data.password]
+  let sql = 'INSERT INTO user (firstName, lastName, email, username, password, user_image) VALUES (?,?,?,?,?,?)'
+  let params = [data.firstName, data.lastName, data.email, data.username, data.password, data.user_image]
 
   db.run(sql, params, (err, result) => {
       if (err) {
@@ -76,9 +77,9 @@ router.post('/', (req, res) => {
 
 router.patch('/update/:user_id', (req, res) => {
   const {user_id} = req.params
-  const { firstName, lastName, email, username, password, location } = req.body
+  const { firstName, lastName, email, username, password, location, user_image } = req.body
 
-  let sql = 'UPDATE user SET firstName = ?, lastName = ?, email = ?, username = ?, password = ?, location = ? WHERE user_id = ?';
+  let sql = 'UPDATE user SET firstName = ?, lastName = ?, email = ?, username = ?, password = ?, location = ?, user_image = ? WHERE user_id = ?';
 
   let data = {
     firstName: firstName,
@@ -87,10 +88,11 @@ router.patch('/update/:user_id', (req, res) => {
     username: username,
     password: password,
     location: location,
-    user_id: user_id
+    user_id: user_id,
+    user_image: user_image
   }
 
-  let params = [data.firstName, data.lastName, data.email, data.username, data.password, data.location, data.user_id]
+  let params = [data.firstName, data.lastName, data.email, data.username, data.password, data.location, data.user_id, data.user_image]
 
   db.run(sql, params, (err) => {
     if (err) {

@@ -23,9 +23,6 @@ const sessionConfig = {
   saveUninitialized: true // GDPR laws requires this to be false because user has to give consent
 };
 
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -34,8 +31,9 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json())
-app.use(session(sessionConfig))
+app.use(bodyParser.json());
+app.use(session(sessionConfig));
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
 
 
 // ROUTERS 🟢

@@ -35,7 +35,7 @@
                                         <p><em><%= post.date_created%></em></p>
                                     </div>
                                 </div>
- 
+
                                 <div id="hm-header-btns">
                                     <button>Edit</button>
                                     <button>Share</button>
@@ -43,10 +43,12 @@
                                 </div>
                             </div>
                             <div id="hm-body">
-                                <p><%= post.post_data %></p>
+                                <%- post.post_data %>
                             </div>
                             <div id="hm-footer">
-                                <button>Read More > </button>
+                                <!-- TODO: add a read more page for the ONE post and route  -->
+                                <!-- link it here  -->
+                                <button>Read More</button>
                             </div>
                         </div>
                     </li>

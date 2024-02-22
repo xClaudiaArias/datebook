@@ -94,6 +94,108 @@ nav #navigation #login-button button a{
 }
 
 
+/* HOME */
+main {
+    width: 100%;
+    height: 700px;
+    padding: 0 50px;
+}
+
+main .notLoggedIn-container {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+main .notLoggedIn-container .welcome-mss {
+    border: 1px solid #dcdcdc;
+    width: 100%;
+    height: 552px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px;
+}
+
+main .notLoggedIn-container .welcome-mss h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #00b512;
+    padding: 10px 0;
+}
+
+main .notLoggedIn-container .welcome-mss .wm {
+    font-size: 32px;
+    color: #00b512;
+    padding: 5px 0;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg {
+    width: 100%;
+    background-color: #F4FFF5;
+    display: flex;
+    align-items: center;
+    height: 360px;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left p {
+    font-size: 30px;
+    color: #1e1e1e;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 0;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns p {
+    color: #1e1e1e;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in,
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register{
+    width: 190px;
+    height: 36px;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in {
+    background-color: #00b512;
+    color: white;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register{
+    background-color: white;
+    color: #00b512;
+    border: 1px solid #00b512;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-right {
+    display: flex;
+    gap: 5px;
+}
+
 
 
 /* footer  */
@@ -141,6 +243,8 @@ footer p {
     text-transform: uppercase;
     color: #939393;
 }
+
+
 
 
 

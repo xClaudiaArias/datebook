@@ -185,6 +185,16 @@ main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left
     color: white;
 }
 
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in a{
+    color: white;
+    text-decoration: none;
+}
+
+main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register a{
+    color: #00b512;
+    text-decoration: none;
+}
+
 main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register{
     background-color: white;
     color: #00b512;
@@ -245,6 +255,98 @@ footer p {
 }
 
 
+/* REGISTER  */
+
+.register-container,
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.register-container main,
+.login-container main {
+    background: white;
+    height: 605px;
+    padding: 30px;
+    box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
+    border-radius: 4px;
+}
+
+.register-container main h1,
+.login-container main h1{
+    color: #00b512;
+    font-weight: 700;
+    font-size: 32px;
+    padding: 5px 0;
+}
+
+.register-container main p,
+.login-container main p{
+    color: #939393;
+    font-size: 18px;
+    padding-bottom: 10px;
+}
+
+.register-container main form,
+.login-container main form{
+    background: #f9f9f9;
+    width: 100%;
+    height: 420px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.login-container main form{
+    justify-content: center;
+    gap: 40px;
+
+}
+
+
+.register-container main form label,
+.login-container main form label  {
+    display: inline-block;
+    width: 150px;
+    font-size: 18px;
+    color: #1e1e1e;
+    padding-right: 30px;
+}
+
+.register-container main form input,
+.login-container main form input {
+    width: 900px;
+    height: 38px;
+    border: 1px solid #dcdcdc;
+    background-color: white;
+    font-size: 18px;
+    padding: 0 10px;
+    color: #1e1e1e;
+}
+
+.register-container main form button,
+.login-container main form button{
+    width: 190px;
+    height: 36px;
+    background: #00b512;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    border-radius: 100px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .15);
+    cursor: pointer;
+    position: absolute;
+    z-index: 4;
+    top: -70px;
+    right: 0;
+}
 
 
 

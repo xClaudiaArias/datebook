@@ -5,6 +5,7 @@
         <main>
             <% if (locals.user) { %>
                 <div id="loggedInMain">
+                    <!-- user welcome  -->
                     <div id="user-welcome">
                         <div id="user-img">
                             <!-- TODO: CHANGE IMAGE  -->
@@ -18,6 +19,7 @@
                             <button> <a href="/create">Create new post</a></button>
                         </div>
                     </div>
+                    <!-- post container  -->
                     <div class="posts-container">
                         <div id="hm-posts-header">
                             <h1>All Posts</h1>
@@ -28,47 +30,46 @@
                             </form>
                         </div>
                         <div id="hm-body-container">
-                            <div class="filter">
+                            <div id="filter">
                                 <p><strong>Filter By:</strong></p>
-                                <hr/>
                                 <button>Most Recent</button>
                                 <button>Oldest</button>
                             </div>
+                            <ul id="hm-posts">
+                                <% posts.forEach((post) => { %>
+                                    <li>
+                                        <div id="hm-post">
+                                            <div id="hm-header">
+                                                <div id="hm-title-date">
+                                                    <div id="hm-title">
+                                                        <p><%= post.title %> </p>
+                                                    </div>
+                
+                
+                                                    <div id="hm-date">
+                                                        <p><em><%= post.date_created%></em></p>
+                                                    </div>
+                                                </div>
+                
+                                                <div id="hm-header-btns">
+                                                    <button class="share">Share</button>
+                                                    <button class="edit">Edit</button>
+                                                    <button class="delete">Delete</button>
+                                                </div>
+                                            </div>
+                                            <div id="hm-body">
+                                                <%- post.post_data %>
+                                            </div>
+                                            <div id="hm-footer">
+                                                <!-- TODO: add a read more page for the ONE post and route  -->
+                                                <!-- link it here  -->
+                                                <button>Read more...</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% }) %>
+                            </ul>
                         </div>
-                        <ul id="hm-posts">
-                            <% posts.forEach((post) => { %>
-                                <li>
-                                    <div id="hm-post">
-                                        <div id="hm-header">
-                                            <div id="hm-title-date">
-                                                <div id="hm-title">
-                                                    <p><%= post.title %> </p>
-                                                </div>
-            
-            
-                                                <div id="hm-date">
-                                                    <p><em><%= post.date_created%></em></p>
-                                                </div>
-                                            </div>
-            
-                                            <div id="hm-header-btns">
-                                                <button>Edit</button>
-                                                <button>Share</button>
-                                                <button>Delete</button>
-                                            </div>
-                                        </div>
-                                        <div id="hm-body">
-                                            <%- post.post_data %>
-                                        </div>
-                                        <div id="hm-footer">
-                                            <!-- TODO: add a read more page for the ONE post and route  -->
-                                            <!-- link it here  -->
-                                            <button>Read More</button>
-                                        </div>
-                                    </div>
-                                </li>
-                            <% }) %>
-                        </ul>
                     </div>
                 </div>
             <% } else { %>

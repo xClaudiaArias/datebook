@@ -44,6 +44,7 @@ const authRouter = require('./routes/auth');
 const logoutRouter = require('./routes/logout')
 const accountRouter = require('./routes/account');
 const postsRouter = require('./routes/posts');
+const settingsRouter = require('./routes/settings');
 
 
 
@@ -59,11 +60,8 @@ app.use('/auth/login', authRouter);
 app.use('/auth/register', authRouter);
 app.use('/auth/logout', authRouter);
 app.use('/posts', postsRouter);
-
-// app.use('/posts/id', postsRouter);
-// app.use('/posts/update/post_id', postsRouter);
-// app.use('/posts/delete/post_id', postsRouter);
 app.use('/account', accountRouter);
+app.use('/settings', settingsRouter);
 
 
 // catch 404 and forward to error handler

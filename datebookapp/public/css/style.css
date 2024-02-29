@@ -95,13 +95,13 @@ nav #navigation #login-button button a{
 
 
 /* HOME */
-main {
+#hm-container main {
     width: 100%;
     height: 700px;
     padding: 0 50px;
 }
 
-main .notLoggedIn-container {
+#hm-container main .notLoggedIn-container {
     width: inherit;
     height: inherit;
     display: flex;
@@ -110,7 +110,7 @@ main .notLoggedIn-container {
 }
 
 
-main .notLoggedIn-container .welcome-mss {
+#hm-container main .notLoggedIn-container .welcome-mss {
     border: 1px solid #dcdcdc;
     width: 100%;
     height: 552px;
@@ -119,58 +119,58 @@ main .notLoggedIn-container .welcome-mss {
     padding: 30px;
 }
 
-main .notLoggedIn-container .welcome-mss h1 {
+#hm-container main .notLoggedIn-container .welcome-mss h1 {
     font-size: 32px;
     font-weight: 600;
-    color: #00b512;
+    color: #34b641;
     padding: 10px 0;
 }
 
-main .notLoggedIn-container .welcome-mss .wm {
+#hm-container main .notLoggedIn-container .welcome-mss .wm {
     font-size: 32px;
-    color: #00b512;
+    color: #34b641;
     padding: 5px 0;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg {
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg {
     width: 100%;
     background-color: #F4FFF5;
     display: flex;
-    align-items: center;
     height: 360px;
     gap: 10px;
-    padding: 0 20px;
+    justify-content: space-between;
+    padding-left: 10px;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left {
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left {
     width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 300px;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left p {
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left p {
     font-size: 30px;
     color: #1e1e1e;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns {
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns {
+    width: 500px;
     display: flex;
     align-items: center;
     gap: 20px;
     padding: 25px 0;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns p {
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns {
     color: #1e1e1e;
     font-size: 20px;
     font-weight: 700;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in,
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register{
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in,
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register{
     width: 190px;
     height: 36px;
     border-radius: 100px;
@@ -180,30 +180,39 @@ main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left
     font-weight: 600;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in {
-    background-color: #00b512;
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in {
+    background-color: #34b641;
     color: white;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in a{
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-sign-in a{
     color: white;
     text-decoration: none;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register a{
-    color: #00b512;
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register a{
+    color:#34b641;
     text-decoration: none;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register{
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-left .hero-msg-left-btns .hero-register{
     background-color: white;
-    color: #00b512;
-    border: 1px solid #00b512;
+    color: #34b641;
+    border: 1px solid #34b641;
 }
 
-main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-right {
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-right {
     display: flex;
     gap: 5px;
+    flex: 2;
+    width: 300px;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+#hm-container main .notLoggedIn-container .welcome-mss .hero-msg .hero-msg-right img {
+    width: 300px;
+    /* height: 300px; */
 }
 
 
@@ -277,7 +286,7 @@ footer p {
 
 .register-container main h1,
 .login-container main h1{
-    color: #00b512;
+    color: #34b641;
     font-weight: 700;
     font-size: 32px;
     padding: 5px 0;
@@ -334,7 +343,7 @@ footer p {
 .login-container main form button{
     width: 190px;
     height: 36px;
-    background: #00b512;
+    background: #34b641;
     color: white;
     font-weight: 700;
     font-size: 16px;
@@ -347,6 +356,120 @@ footer p {
     top: -70px;
     right: 0;
 }
+
+
+/* -- home signed in --  */
+#hm-container main #loggedInMain {
+    background: white;
+    box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
+    border-radius: 16px;
+    height: 660px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+#hm-container main #loggedInMain #user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#hm-container main #loggedInMain #user-welcome #user-img img {
+    border: 3px black solid;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+#hm-container main #loggedInMain #user-welcome #create-btn-container {
+    margin-left: auto;
+}
+
+#hm-container main #loggedInMain #user-welcome #user-msg #users-name{
+    text-transform: capitalize;
+}
+
+#hm-container main #loggedInMain #user-welcome #user-msg p{
+    font-weight: 700;
+    font-size: 28px;
+    color: black;
+}
+
+#hm-container main #loggedInMain #user-welcome #user-msg #today-date{
+    font-weight: 300;
+    font-size: 18px;
+    color: #939393;
+}
+
+#hm-container main #loggedInMain #user-welcome #create-btn-container button {
+    width: 190px;
+    height: 36px;
+    background-color: #34b641;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
+}
+
+#hm-container main #loggedInMain #user-welcome #create-btn-container button a {
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+#hm-container main #loggedInMain .posts-container {
+    background-color: #f9f9f9;
+    height: 470px;
+    padding: 10px;
+}
+
+#hm-container main #loggedInMain .posts-container  #hm-posts-header{
+    display: flex;
+    align-items: center;
+}
+
+#hm-container main #loggedInMain .posts-container  #hm-posts-header h1{
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #1e1e1e;
+    padding-right: 20px;
+}
+
+
+#hm-container main #loggedInMain .posts-container  #hm-posts-header p{
+    font-size: 18px;
+    color: #939393;
+}
+
+#hm-container main #loggedInMain .posts-container  #hm-posts-header form{
+    margin-left: auto;
+    border: 1px solid #dcdcdc;
+    background: white;
+    border-radius: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    width: 350px;
+    justify-content: center;
+}
+
+#hm-container main #loggedInMain .posts-container  #hm-posts-header form input{
+    width: 300px;
+    height: 30px;
+    font-size: 16px;
+    padding: 0 10px 0;
+    border: none;
+}
+
+#hm-container main #loggedInMain .posts-container  #hm-posts-header form input::placeholder{
+    color: #dcdcdc;
+    text-transform: capitalize;
+}
+
+#hm-container main #loggedInMain .posts-container  #hm-posts-header form button{
+    background: none;
+    cursor: pointer;
+    border: none;
+}
+
 
 
 

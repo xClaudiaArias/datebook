@@ -554,7 +554,9 @@ footer p {
     font-weight: 600;
 }
 
-#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns {
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns, 
+.post-expanded-container main .postexpanded-greycontainer .postexpanded-white-container
+.postexpanded-post-container #postexpanded-header-btns {
     /* border: 1px solid red; */
     width: 300px;
     display: flex;
@@ -564,7 +566,9 @@ footer p {
     border-radius: 50px;
 }
 
-#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns button {
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns button,
+.post-expanded-container main .postexpanded-greycontainer .postexpanded-white-container
+.postexpanded-post-container #postexpanded-header-btns button {
     width: 100px;
     height: 40px;
     font-size: 14px;
@@ -573,19 +577,25 @@ footer p {
     cursor: pointer;
 }
 
-#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .share {
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .share,
+.post-expanded-container main .postexpanded-greycontainer .postexpanded-white-container
+.postexpanded-post-container #postexpanded-header-btns .share {
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     border: none;
     border-right: 1px solid #e0e0e0;
 }
 
-#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .share a {
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .share a,
+.post-expanded-container main .postexpanded-greycontainer .postexpanded-white-container
+.postexpanded-post-container #postexpanded-header-btns .share a {
     text-decoration: none;
     color: #ffb800;
 }
 
-#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .delete {
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .delete,
+.post-expanded-container main .postexpanded-greycontainer .postexpanded-white-container
+.postexpanded-post-container #postexpanded-header-btns .delete {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     border: none;
@@ -593,17 +603,23 @@ footer p {
     color: #DD0000;
 }
 
-#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .delete a{
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .delete a,
+.post-expanded-container main .postexpanded-greycontainer .postexpanded-white-container
+.postexpanded-post-container #postexpanded-header-btns .delete a{
     text-decoration: none;
     color: #DD0000;
 }
 
-#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .edit {
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .edit,
+.post-expanded-container main .postexpanded-greycontainer .postexpanded-white-container
+.postexpanded-post-container #postexpanded-header-btns .edit {
     border: none;
     color: #0085FF;
 }
 
-#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .edit a {
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .edit a,
+.post-expanded-container main .postexpanded-greycontainer .postexpanded-white-container
+.postexpanded-post-container #postexpanded-header-btns .edit a {
     text-decoration: none;
     color: #0085FF;
 }
@@ -635,14 +651,16 @@ footer p {
 
 /* CREATE  */
 
-#create-container {
+#create-container,
+#edit-container {
     height: 700px;
     display: flex;
     align-items: center; 
     padding: 50px;
 }
 
-#create-container main {
+#create-container main,
+#edit-container main {
     width: 100%;
     background: white;
     border-radius: 8px;
@@ -650,25 +668,31 @@ footer p {
     padding: 20px;
 }
 
-#create-container main h1 {
+#create-container main h1,
+#edit-container main h1,
+.settings-container main h1 {
     font-size: 32px;
     font-weight: 600;
     color: #34b641;
 }
 
-#create-container main p {
+#create-container main p,
+#edit-container main p,
+.settings-container main p {
     font-size: 18px;
     color: #939393;
     padding-bottom: 20px;
 }
 
-#create-container main form {
+#create-container main form,
+#edit-container main form {
     background-color: #f9f9f9;
     padding: 20px;
     position: relative;
 }
 
-#create-container main form input {
+#create-container main form input,
+#edit-container main form input {
     background: white;
     width: 100%;
     font-size: 22px;
@@ -679,16 +703,19 @@ footer p {
     margin-bottom: 10px;
 }
 
-#create-container main form input::placeholder {
+#create-container main form input::placeholder,
+#edit-container main form input::placeholder {
     color: #b9b9b9;
 }
 
-#create-container main form textarea {
+#create-container main form textarea,
+#edit-container main form textarea {
     height: 400px;
     box-sizing: border-box;
     font-size: 16px;
 }
-#create-container main form .create-btn {
+#create-container main form .create-btn,
+#edit-container main form .edit-btn {
     background-color: #34b641;
     color: white;
     font-size: 16px;
@@ -701,6 +728,109 @@ footer p {
     box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
     right: 2px;
     cursor: pointer;
+}
+
+/* SETTINGS    */
+
+.settings-container {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.settings-container main {
+    background: white;
+    box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
+    border-radius: 16px;
+    height: 660px;
+    padding: 30px;
+    width: 100%;
+}
+
+.settings-container main form {
+    background: #f9f9f9;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+    position: relative;
+    border-radius: 4px;
+    gap: 24px;
+    height: 480px;
+}
+
+.settings-container main form .form-settings {
+    background: #f9f9f9;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.settings-container main form .form-settings label {
+    width: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.settings-container main form .form-settings input {
+    width: 100%;
+    background: white;
+    border: 1px solid #dcdcdc;
+    height: 38px;
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: 16px;
+}
+
+.settings-container main form .settings-btn {
+    position: absolute;
+    top: -70px;
+    right: 2px;
+}
+
+.settings-container main form .settings-btn button {
+    width: 130px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #34b641;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
+    cursor: pointer;
+}
+
+/* POST EXPANDED --------------------- */
+
+.post-expanded-container {
+    border: 1px solid blue;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.post-expanded-container main {
+    border: 1px solid red;
+    background: white;
+    width: 100%;
+    height: 610px;
+    padding: 30px;
+    box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
+    border-radius: 8px;
+}
+
+.post-expanded-container main .postexpanded-greycontainer {
+    background: #f9f9f9;
 }
 
 

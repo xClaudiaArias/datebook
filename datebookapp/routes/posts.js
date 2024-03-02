@@ -62,10 +62,14 @@ router.get('/:id', (req, res) => {
         res.status(400).json({"error": err.message})
         return;
         } 
-        res.json({
-        "message": "success",
-        "data": rows
-        })
+        // res.json({
+        // "message": "success",
+        // "data": rows
+        // })
+        let data = {...rows}
+        console.log(data, " ---rows")
+
+        res.render('postExpanded', {title: data.title, post_data: data.post_data, dateCreated: data.date_created})
     })
 });
 

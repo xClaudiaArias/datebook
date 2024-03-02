@@ -1,0 +1,32 @@
+<%- include("./partials/header") -%>
+<%- include("./partials/nav") -%>
+
+<div class="post-expanded-container">
+    <main>
+        <div class="postexpanded-greycontainer">
+            <div class="postexpanded-white-container">
+                <div class="postexpanded-user">
+                    
+                    <img src="https://cdn.pixabay.com/photo/2021/11/12/03/04/woman-6787784_1280.png" alt="pfp" width="80px" height="80px">
+                    <h2>June Smith</h2>
+
+                </div>
+                <div class="postexpanded-post-container">
+                    <h1><%= title %></h1>
+                    <p><%=dateCreated %></p>
+                    <div id="postexpanded-header-btns">
+                        <button class="share"><a href="/share">Share</a></button>
+                        <button class="edit"><a href="/edit">Edit</a></button>
+                        <button class="delete"><a href="/delete">Delete</a></button>
+                    </div>
+                    <div class="postexpanded-post">
+                        <%- post_data %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+<%- include("./partials/footer") -%>

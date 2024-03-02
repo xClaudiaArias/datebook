@@ -61,6 +61,7 @@ app.use('/auth/login', authRouter);
 app.use('/auth/register', authRouter);
 app.use('/auth/logout', authRouter);
 app.use('/posts', postsRouter);
+app.use('/posts/id', postsRouter);
 app.use('/account', accountRouter);
 app.use('/settings', settingsRouter);
 app.use('/edit', editRouter)

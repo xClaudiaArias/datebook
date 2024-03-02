@@ -578,6 +578,10 @@ footer p {
     border-bottom-left-radius: 50px;
     border: none;
     border-right: 1px solid #e0e0e0;
+}
+
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .share a {
+    text-decoration: none;
     color: #ffb800;
 }
 
@@ -589,8 +593,18 @@ footer p {
     color: #DD0000;
 }
 
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .delete a{
+    text-decoration: none;
+    color: #DD0000;
+}
+
 #hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .edit {
     border: none;
+    color: #0085FF;
+}
+
+#hm-container main #loggedInMain .posts-container #hm-body-container #hm-posts li #hm-post #hm-header #hm-header-btns .edit a {
+    text-decoration: none;
     color: #0085FF;
 }
 
@@ -619,11 +633,75 @@ footer p {
     border: none;
 }
 
+/* CREATE  */
 
+#create-container {
+    height: 700px;
+    display: flex;
+    align-items: center; 
+    padding: 50px;
+}
 
+#create-container main {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
+    padding: 20px;
+}
 
+#create-container main h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #34b641;
+}
 
+#create-container main p {
+    font-size: 18px;
+    color: #939393;
+    padding-bottom: 20px;
+}
 
+#create-container main form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    position: relative;
+}
+
+#create-container main form input {
+    background: white;
+    width: 100%;
+    font-size: 22px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    height: 40px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+#create-container main form input::placeholder {
+    color: #b9b9b9;
+}
+
+#create-container main form textarea {
+    height: 400px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+#create-container main form .create-btn {
+    background-color: #34b641;
+    color: white;
+    font-size: 16px;
+    position: absolute;
+    top: -70px;
+    width: 160px;
+    height: 32px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 2px 2px 2px rgba(147, 147, 147, 0.15);
+    right: 2px;
+    cursor: pointer;
+}
 
 
 /* MEDIA QUERIES  */

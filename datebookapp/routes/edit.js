@@ -21,13 +21,18 @@ const todaysDate = () => {
 }
 
 /* GET users listing. */
-router.get('/', (req, res) => {
+// router.get('/', (req, res) => {
+//     res.render('edit', {todaysDate: todaysDate()});
+// })
+
+
+router.get('/:post_id', (req, res) => {
     res.render('edit', {todaysDate: todaysDate()});
 });
 
 
 // edit 
-router.patch("/update/:post_id", (req, res) => {
+router.post("/:post_id", (req, res) => {
     const user = req.session.user
     const { post_id } = req.params
     const { title, post_data } = req.body
@@ -37,10 +42,11 @@ router.patch("/update/:post_id", (req, res) => {
             res.status(400).json({"err": err.message})
         }
 
-        res.json({
-            "message": "Post successfully updated",
-            "changes": this.changes
-        })
+        // res.json({
+        //     "message": "Post successfully updated",
+        //     "changes": this.changes
+        // })
+        res.redirect("/")
     })
 })
 

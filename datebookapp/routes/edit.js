@@ -27,7 +27,35 @@ const todaysDate = () => {
 
 
 router.get('/:post_id', (req, res) => {
-    res.render('edit', {todaysDate: todaysDate()});
+    let {post_id} = req.params
+    let user = req.session.user
+
+
+    if (user !== undefined ) {
+        let sql = "SELECT * FROM post WHERE post_id = ?"
+
+
+        db.all(sql, post_id, (err, rows) => {
+            if (err) {
+                res.status(400).json({"error": err.message})
+                return;
+            } 
+
+            // posts.push(rows)
+            let posts = rows;
+
+            console.log(posts[0].title, " ---> posts")
+    
+            res.render("edit", {user: user, post_title: posts[0].title, post_dat: posts[0].post_data, todaysDate: todaysDate()})
+        })
+
+
+    } else {
+        res.render("/")
+    }
+
+
+    // res.render('edit', {todaysDate: todaysDate()});
 });
 
 

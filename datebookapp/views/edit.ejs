@@ -3,13 +3,14 @@
 
 <div id="edit-container">
     <main>
+
         <h1>Edit post</h1>
         <p id="todaysDate"><em><%= locals.todaysDate %></em></p>
         <form method="post">
             <form method="post">
-                <input type="text" class="title" id="title" name="title" placeholder="Edit title">
+                <input type="text" class="title" id="title" name="title" value="<%=post_title%>">
 
-                <textarea name="post_data" id="edit_post_data" cols="30" rows="10"></textarea>
+                <textarea name="post_data" id="edit_post_data" cols="30" rows="10"><%=post_dat%></textarea>
                 <button class="edit-btn" type="submit">Save</button>
             </form>
         </form>

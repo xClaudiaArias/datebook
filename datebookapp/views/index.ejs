@@ -54,9 +54,14 @@
                                                 <div id="hm-header-btns">
                                                     <button class="share"><a href="/share">Share</a></button>
                                                     <button class="edit"><a href="/edit/<%=post.post_id%>">Edit</a></button>
-                                                    <button class="delete"><a href="/delete">Delete</a></button>
-                                                </div>
+                                                    <form action="/posts/delete/<%=post.post_id%>" method="post">
+                                                        <button class="delete">Delete</button>
+                                                    </form>
+                                                </div> 
                                             </div>
+
+
+
                                             <div id="hm-body">
                                                 <%- post.post_data %>
                                             </div>

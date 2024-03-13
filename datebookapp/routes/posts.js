@@ -79,6 +79,8 @@ router.get('/user/:user_id', (req, res) => {
     let sql = "SELECT * FROM post WHERE user_id = ?"
     let params = req.params.user_id
     let posts = []
+    let user = req.session.user
+
 
     db.all(sql, params, (err, rows) => {
         if (err) {
@@ -86,10 +88,16 @@ router.get('/user/:user_id', (req, res) => {
             return;
         } 
 
-        res.json({
-            "message": "success",
-            "data": rows
-        })
+        // res.json({
+        //     "message": "success",
+        //     "data": rows
+
+
+        // })
+
+        posts.push(rows)
+
+        res.render("posts", {user_id: user.id })
     })
 })
 
@@ -148,14 +156,14 @@ router.patch("/update/:post_id", (req, res) => {
 })
 
 // delete 
-router.delete('/delete/:post_id', (req, res) => {
-    const { post_id }= req.params
+router.post('/delete/:id', (req, res) => {
+    const { id } = req.params
     const user = req.session.user
 
     let sql = `DELETE FROM post WHERE post_id = ? AND user_id = ?`
 
     let data = {
-        post_id: post_id,
+        post_id: id,
         user_id: user.id
     }
 
@@ -169,9 +177,10 @@ router.delete('/delete/:post_id', (req, res) => {
             return; 
         }
 
-        res.json({
-            "message": "Post successfully deleted"
-        })
+        // res.json({
+        //     "message": "Post successfully deleted"
+        // })
+        res.redirect("/")
     })
 
 })

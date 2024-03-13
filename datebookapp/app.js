@@ -62,10 +62,12 @@ app.use('/auth/register', authRouter);
 app.use('/auth/logout', authRouter);
 app.use('/posts', postsRouter);
 app.use('/posts/id', postsRouter);
+app.use('/posts/user/user_id', postsRouter);
 app.use('/account', accountRouter);
 app.use('/settings', settingsRouter);
 app.use('/edit', editRouter)
 app.use('/edit/post_id', editRouter);
+app.use('/posts/delete/post_id', postsRouter);
 
 
 // catch 404 and forward to error handler

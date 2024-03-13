@@ -1,10 +1,9 @@
 const express = require('express');
+const db = require('../database');
 const bodyParser = require('body-parser');
-const session = require('express-session')
-const db = require('../database')
+const session = require('express-session');
 
 const router = express.Router();
-
 
 const todaysDate = () => {
     const date = new Date();
@@ -23,7 +22,46 @@ const todaysDate = () => {
 }
 
 router.get("/", (req, res) => {
-    res.render("settings", {todaysDate: todaysDate()})
+    let user = req.session.user
+
+    if (user !== undefined ) {
+        res.render("settings", {user: user, todaysDate: todaysDate()})
+    } else {
+        res.render("settings")
+    }
+})
+
+router.post('/update/:user_id', (req, res) => {
+    const { user_id } = req.params
+    const { firstName, lastName, email, username, password, location } = req.body
+    let user = req.session.user
+
+    let sql = 'UPDATE user SET firstName = ?, lastName = ?, email = ?, username = ?, password = ?, location = ? WHERE user_id = ?';
+
+    let data = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        username: username,
+        password: password,
+        location: location,
+        user_id: user.id
+    }
+
+    let params = [data.firstName, data.lastName, data.email, data.username, data.password, data.location, data.user_id]
+
+    db.run(sql, params, (err) => {
+        if (err) {
+            res.status(400).json({"err": err.message})
+            return;
+        }
+
+        // console.log("Changes: " + this.changes)
+        // res.json({
+        //     "message": "User successfully updated."
+        // })
+        res.redirect('/')
+    })
 })
 
 module.exports = router

@@ -6,7 +6,9 @@
         <h1>Edit profile information</h1>
         <p><%= locals.todaysDate %></p>
 
-        <form method="post">
+        <% if (locals.user) { %>
+
+        <form action="/settings/update/<%=user.id%>" method="post">
             <div class="form-settings">
                 <label for="firstname">First name</label>
                 <input type="text" name="firstName">
@@ -21,17 +23,19 @@
             </div>
             <div class="form-settings">
                 <label for="username">User name</label>
-                <input type="text" name="lastName">
+                <input type="text" name="username">
             </div>
             <div class="form-settings">
                 <label for="password">Password</label>
                 <input type="password" name="password">
             </div>
             <div class="settings-btn">
-                <button>Save</button>
+                <button type="submit">Save</button>
             </div>
 
         </form>
+
+        <% } %>
     </main>
 </div>
 

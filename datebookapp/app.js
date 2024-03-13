@@ -65,6 +65,7 @@ app.use('/posts/id', postsRouter);
 app.use('/posts/user/user_id', postsRouter);
 app.use('/account', accountRouter);
 app.use('/settings', settingsRouter);
+app.use('/settings/update/user_id', settingsRouter);
 app.use('/edit', editRouter)
 app.use('/edit/post_id', editRouter);
 app.use('/posts/delete/post_id', postsRouter);

@@ -62,10 +62,7 @@ router.get('/:id', (req, res) => {
         res.status(400).json({"error": err.message})
         return;
         } 
-        // res.json({
-        // "message": "success",
-        // "data": rows
-        // })
+
         let data = {...rows}
         console.log(data, " ---rows")
 
@@ -87,13 +84,6 @@ router.get('/user/:user_id', (req, res) => {
             res.status(400).json({"error": err.message})
             return;
         } 
-
-        // res.json({
-        //     "message": "success",
-        //     "data": rows
-
-
-        // })
 
         posts.push(rows)
 

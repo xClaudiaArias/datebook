@@ -19,7 +19,6 @@ router.get('/', (req, res) => {
       "data": rows
     })
   })
-  // res.render('user', { title: ' | Profile', user: name });
 });
 
 
@@ -52,7 +51,7 @@ router.post('/', (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
     username: req.body.username,
-    password: req.body.password, 
+    password: md5(req.body.password), 
     user_image: "https://picsum.photos/200/300/?blur=2"
   }
 

@@ -7,27 +7,28 @@
         <p><%= locals.todaysDate %></p>
 
         <% if (locals.user) { %>
+            <% console.log(user.email, " user email") %>
 
         <form action="/settings/update/<%=user.id%>" method="post">
             <div class="form-settings">
                 <label for="firstname">First name</label>
-                <input type="text" name="firstName">
+                <input type="text" name="firstName" value="<%=user.firstName%>">
             </div>
             <div class="form-settings">
                 <label for="lastname">Last name</label>
-                <input type="text" name="lastName">
+                <input type="text" name="lastName" value="<%=user.lastName%>">
             </div>
             <div class="form-settings">
                 <label for="email">Email</label>
-                <input type="email" name="email">
+                <input type="email" name="email" value="<%=user.email%>">
             </div>
             <div class="form-settings">
                 <label for="username">User name</label>
-                <input type="text" name="username">
+                <input type="text" name="username" value="<%=user.username%>">
             </div>
             <div class="form-settings">
                 <label for="password">Password</label>
-                <input type="password" name="password">
+                <input type="password" name="password" value="<%=user.firstName%>">
             </div>
             <div class="settings-btn">
                 <button type="submit">Save</button>

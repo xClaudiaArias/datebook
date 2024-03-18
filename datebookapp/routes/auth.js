@@ -83,7 +83,8 @@ router.post('/login', (req, res) => {
                     id: user[0].user_id,
                     firstName: user[0].firstName,
                     lastName: user[0].lastName,
-                    username: user[0].username
+                    username: user[0].username,
+                    email: user[0].email
                 }
                 res.redirect("/")
             }

@@ -4,22 +4,19 @@ const session = require('express-session');
 
 const router = express.Router();
 
-router.get('/logout', (req, res) => {
+router.get('/', (req, res) => {
     if (req.session) {
         req.session.destroy(error => {
             if (error) {
                 console.log(error)
                 res.status(500).json({message: "Something went wrong"})
             } else {
-                res.status(200).json({message: "Goodbye"})
+                res.redirect("/")
             }
         })
     } else {
-        res.status(200).json({message: "Not logged In"})
+        res.redirect("/")
     }
 });
-
-
-
 
 module.exports = router;

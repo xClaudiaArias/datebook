@@ -68,6 +68,7 @@ app.use('/settings/update/user_id', settingsRouter);
 app.use('/edit', editRouter)
 app.use('/edit/post_id', editRouter);
 app.use('/posts/delete/post_id', postsRouter);
+app.use('/logout', logoutRouter)
 
 
 // catch 404 and forward to error handler

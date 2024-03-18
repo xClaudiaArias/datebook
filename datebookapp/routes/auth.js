@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session')
 const db = require('../database')
+const jwt = require("jsonwebtoken")
 
 const router = express.Router();
 
@@ -35,11 +36,8 @@ router.post('/register', (req, res) => {
             return;                      
         } 
         
-        // res.json({
-        //     "message" : "Success",
-        //     "data": data,
-        //     "id": this.lastID
-        // })
+        const token = jwt.sign(data, 'datebook_blog')
+
         res.redirect("/auth/login")
     })
 
@@ -86,6 +84,7 @@ router.post('/login', (req, res) => {
                     username: user[0].username,
                     email: user[0].email
                 }
+                const token = jwt.sign(req.session.user, 'datebook_blog')
                 res.redirect("/")
             }
 

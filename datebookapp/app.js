@@ -35,7 +35,6 @@ app.use(bodyParser.json());
 app.use(session(sessionConfig));
 app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
 
-
 // ROUTERS 🟢
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
